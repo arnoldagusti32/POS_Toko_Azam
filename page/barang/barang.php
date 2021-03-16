@@ -5,6 +5,7 @@
                 <h2>
                     DATA BARANG
                 </h2>
+                <h3><a href="?page=barang&aksi=tambah" class="btn btn-primary">Tambah</a></h3>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

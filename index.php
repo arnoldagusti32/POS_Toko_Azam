@@ -30,6 +30,9 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
     <!-- Animation Css -->
     <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -502,9 +505,10 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
                 if ($page == "barang") {
                     if ($aksi == "") {
                         include "page/barang/barang.php";
+                    } elseif ($aksi == "tambah") {
+                        include "page/barang/tambah.php";
                     }
-                }
-                if ($page == "pelanggan") {
+                } elseif ($page == "pelanggan") {
                     if ($aksi == "") {
                         include "page/pelanggan/pelanggan.php";
                     }

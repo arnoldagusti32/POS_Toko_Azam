@@ -68,7 +68,7 @@
                                     <td><?php echo $data["profit"]; ?></td>
                                     <td>
                                         <a href="?page=barang&aksi=ubah&id=<?php echo $data['kode_barcode']; ?>" class="btn btn-success">Ubah</a>
-                                        <a href="?page=barang&aksi=hapus">Hapus</a>
+                                        <a href="?page=barang&aksi=hapus&id=<?php echo $data['kode_barcode']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')">Hapus</a>
                                     </td>
                                 </tr>
                             <?php

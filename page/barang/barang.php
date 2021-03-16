@@ -67,8 +67,8 @@
                                     <td><?php echo $data["harga_jual"]; ?></td>
                                     <td><?php echo $data["profit"]; ?></td>
                                     <td>
-                                        <a href="">Ubah</a>
-                                        <a href="">Hapus</a>
+                                        <a href="?page=barang&aksi=ubah&id=<?php echo $data['kode_barcode']; ?>" class="btn btn-success">Ubah</a>
+                                        <a href="?page=barang&aksi=hapus">Hapus</a>
                                     </td>
                                 </tr>
                             <?php

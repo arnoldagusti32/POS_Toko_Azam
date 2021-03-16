@@ -507,6 +507,8 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
                         include "page/barang/barang.php";
                     } elseif ($aksi == "tambah") {
                         include "page/barang/tambah.php";
+                    } elseif ($aksi == "ubah") {
+                        include "page/barang/ubah.php";
                     }
                 } elseif ($page == "pelanggan") {
                     if ($aksi == "") {

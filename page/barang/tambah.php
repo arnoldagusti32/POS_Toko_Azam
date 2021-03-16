@@ -23,13 +23,13 @@
                     <label for="">Kode Barcode</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" class="form-control" name="kode" />
+                            <input type="text" class="form-control" name="kode" required />
                         </div>
                     </div>
                     <label for="">Nama Barang</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" class="form-control" name="nama" />
+                            <input type="text" class="form-control" name="nama" required />
                         </div>
                     </div>
                     <label for="">Satuan</label>
@@ -46,25 +46,25 @@
                     <label for="">Stok</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" name="stok" />
+                            <input type="number" class="form-control" name="stok" required />
                         </div>
                     </div>
                     <label for="">Harga Beli</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" id="harga_beli" onkeyup="sum()" name="hbeli" />
+                            <input type="number" class="form-control" id="harga_beli" onkeyup="sum()" name="hbeli" required />
                         </div>
                     </div>
                     <label for="">Harga Jual</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" id="harga_jual" onkeyup="sum()" name="hjual" />
+                            <input type="number" class="form-control" id="harga_jual" onkeyup="sum()" name="hjual" required />
                         </div>
                     </div>
                     <label for="">Profit</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" id="profit" name="profit" readonly="" style="background-color: #c7c3e9;" value="0" />
+                            <input type="number" class="form-control" id="profit" name="profit" readonly="" style="background-color: #c7c3e9;" value="0" required />
                         </div>
                     </div>
 

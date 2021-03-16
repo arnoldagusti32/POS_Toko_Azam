@@ -33,13 +33,13 @@ $satuan = $tampil['satuan'];
                     <label for="">Kode Barcode</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" class="form-control" name="kode" value="<?php echo $tampil['kode_barcode']; ?>" />
+                            <input type="text" class="form-control" name="kode" value="<?php echo $tampil['kode_barcode']; ?>" required />
                         </div>
                     </div>
                     <label for="">Nama Barang</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" class="form-control" name="nama" value="<?php echo $tampil['nama_barang']; ?>" />
+                            <input type="text" class="form-control" name="nama" value="<?php echo $tampil['nama_barang']; ?>" required />
                         </div>
                     </div>
                     <label for="">Satuan</label>
@@ -61,25 +61,25 @@ $satuan = $tampil['satuan'];
                     <label for="">Stok</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" name="stok" value="<?php echo $tampil['stok']; ?>" />
+                            <input type="number" class="form-control" name="stok" value="<?php echo $tampil['stok']; ?>" required />
                         </div>
                     </div>
                     <label for="">Harga Beli</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" id="harga_beli" onkeyup="sum()" name="hbeli" value="<?php echo $tampil['harga_beli']; ?>" />
+                            <input type="number" class="form-control" id="harga_beli" onkeyup="sum()" name="hbeli" value="<?php echo $tampil['harga_beli']; ?>" required />
                         </div>
                     </div>
                     <label for="">Harga Jual</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" id="harga_jual" onkeyup="sum()" name="hjual" value="<?php echo $tampil['harga_jual']; ?>" />
+                            <input type="number" class="form-control" id="harga_jual" onkeyup="sum()" name="hjual" value="<?php echo $tampil['harga_jual']; ?>" required />
                         </div>
                     </div>
                     <label for="">Profit</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="number" class="form-control" id="profit" name="profit" readonly="" style="background-color: #c7c3e9;" value="<?php echo $tampil['profit']; ?>" />
+                            <input type="number" class="form-control" id="profit" name="profit" readonly="" style="background-color: #c7c3e9;" value="<?php echo $tampil['profit']; ?>" required />
                         </div>
                     </div>
 
@@ -109,3 +109,7 @@ $satuan = $tampil['satuan'];
                     }
                 }
                 ?>
+            </div>
+        </div>
+    </div>
+</div>

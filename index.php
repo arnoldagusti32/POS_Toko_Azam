@@ -515,6 +515,12 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
                 } elseif ($page == "pelanggan") {
                     if ($aksi == "") {
                         include "page/pelanggan/pelanggan.php";
+                    } elseif ($aksi == "tambah") {
+                        include "page/pelanggan/tambah.php";
+                    } elseif ($aksi == "ubah") {
+                        include "page/pelanggan/ubah.php";
+                    } elseif ($aksi == "hapus") {
+                        include "page/pelanggan/hapus.php";
                     }
                 }
 

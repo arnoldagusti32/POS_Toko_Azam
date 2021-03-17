@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-
+include "kodepj.php";
 $koneksi = new mysqli("localhost", "root", "", "db_pos");
 if ($_SESSION['admin'] || $_SESSION['kasir']) {
 ?>
@@ -349,6 +349,12 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         }
                         ?>
                         <li>
+                            <a href="?page=penjualan&kodepj=<?php echo $kode; ?>">
+                                <i class="material-icons">person</i>
+                                <span>Penjualan</span>
+                            </a>
+                        </li>
+                        <li>
                             <ul class="ml-menu">
                             </ul>
                         </li>
@@ -553,6 +559,16 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             include "page/pengguna/ubah.php";
                         } elseif ($aksi == "hapus") {
                             include "page/pengguna/hapus.php";
+                        }
+                    } elseif ($page == "penjualan") {
+                        if ($aksi == "") {
+                            include "page/penjualan/penjualan.php";
+                        } elseif ($aksi == "tambah") {
+                            include "page/penjualan/tambah.php";
+                        } elseif ($aksi == "ubah") {
+                            include "page/penjualan/ubah.php";
+                        } elseif ($aksi == "hapus") {
+                            include "page/penjualan/hapus.php";
                         }
                     }
 

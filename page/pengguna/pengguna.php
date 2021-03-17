@@ -43,11 +43,11 @@
                             ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
-                                    <td><?php echo $data["username"]; ?></td>
-                                    <td><?php echo $data["password"]; ?></td>
-                                    <td><?php echo $data["nama"]; ?></td>
-                                    <td><?php echo $data["level"]; ?></td>
-                                    <td> <img src="images/<?php echo $data["photo"]; ?>" alt="Pengguna" width="50" height="50">
+                                    <td><?php echo $data['username']; ?></td>
+                                    <td><?php echo $data['password']; ?></td>
+                                    <td><?php echo $data['nama']; ?></td>
+                                    <td><?php echo $data['level']; ?></td>
+                                    <td> <img src="images/<?php echo $data['photo']; ?>" alt="Pengguna" width="50" height="50">
                                     </td>
                                     <td class="d-flex justify-content-center">
                                         <a href="?page=pengguna&aksi=ubah&id=<?php echo $data['id']; ?>" class="btn btn-success"><i class="material-icons">edit</i> Ubah</a>

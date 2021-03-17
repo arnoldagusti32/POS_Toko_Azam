@@ -105,7 +105,27 @@ $kode = $_GET['kodepj'];
                             </tbody>
                             <tr>
                                 <td colspan="5" style="text-align: right;">Total</td>
-                                <td><input type="text" value="<?php echo $total_bayar; ?>" readonly></td>
+                                <td><input type="number" id="total_bayar" style="text-align: right;" value="<?php echo $total_bayar; ?>" onkeyup="hitung();" readonly></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Diskon</td>
+                                <td><input type="number" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Potongan Diskon</td>
+                                <td><input type="number" name="potongan" style="text-align: right;" id="potongan"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Sub Total</td>
+                                <td><input type="number" name="s_total" style="text-align: right;" id="s_total"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;"> Bayar</td>
+                                <td><input type="number" name="bayar" style="text-align: right;" onkeyup="hitung();" id="bayar"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;"> Kembali</td>
+                                <td><input type="number" name="kembali" style="text-align: right;" id="kembali"></td>
                             </tr>
                         </table>
                     </div>
@@ -113,3 +133,25 @@ $kode = $_GET['kodepj'];
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function hitung() {
+            var diskon = document.getElementById('diskon').value;
+            var total_bayar = document.getElementById('total_bayar').value;
+
+            var diskon_pot = parseInt(total_bayar) * parseInt(diskon) / parseInt(100);
+
+            if (!isNaN(diskon_pot)) {
+                var potongan = document.getElementById('potongan').value = diskon_pot;
+            }
+            var sub_total = parseInt(total_bayar) - parseInt(potongan);
+            if (!isNaN(sub_total)) {
+                var s_total = document.getElementById('s_total').value = sub_total;
+            }
+            var bayar = document.getElementById('bayar').value;
+            var bayar_b = parseInt(bayar) - parseInt(s_total);
+            if (!isNaN(bayar_b)) {
+                document.getElementById('kembali').value = bayar_b;
+            }
+        }
+    </script>

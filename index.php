@@ -350,7 +350,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         ?>
                         <li>
                             <a href="?page=penjualan&kodepj=<?php echo $kode; ?>">
-                                <i class="material-icons">person</i>
+                                <i class="material-icons">shopping_basket</i>
                                 <span>Penjualan</span>
                             </a>
                         </li>

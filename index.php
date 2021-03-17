@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 $koneksi = new mysqli("localhost", "root", "", "db_pos");
-if ($_SESSION['admin']) {
+if ($_SESSION['admin'] || $_SESSION['kasir']) {
 ?>
     <!DOCTYPE html>
     <html>
@@ -278,6 +278,19 @@ if ($_SESSION['admin']) {
                 </div>
             </div>
         </nav>
+
+        <?php
+        if ($_SESSION['admin']) {
+            $user = $_SESSION['admin'];
+        } elseif ($_SESSION['kasir']) {
+            $user = $_SESSION['kasir'];
+        }
+
+        $sql = $koneksi->query("SELECT * FROM tb_pengguna WHERE id='$user'");
+        $data = $sql->fetch_assoc();
+
+        ?>
+
         <!-- #Top Bar -->
         <section>
             <!-- Left Sidebar -->
@@ -285,11 +298,11 @@ if ($_SESSION['admin']) {
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="image">
-                        <img src="images/user.png" width="48" height="48" alt="User" />
+                        <img src="images/<?php echo $data['photo']; ?>" width="48" height="48" alt="User" />
                     </div>
                     <div class="info-container">
-                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                        <div class="email">john.doe@example.com</div>
+                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:uppercase;"><?php echo $data['nama']; ?></div>
+                        <div class="email">Anda Login Sebagai <?php echo $data['level']; ?></div>
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
@@ -311,24 +324,30 @@ if ($_SESSION['admin']) {
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="?page=barang">
-                                <i class="material-icons">view_module</i>
-                                <span>Barang</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="?page=pelanggan">
-                                <i class="material-icons">supervisor_account</i>
-                                <span>Pelanggan</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="?page=pengguna">
-                                <i class="material-icons">person</i>
-                                <span>Pengguna</span>
-                            </a>
-                        </li>
+                        <?php
+                        if ($_SESSION['admin']) {
+                        ?>
+                            <li>
+                                <a href="?page=barang">
+                                    <i class="material-icons">view_module</i>
+                                    <span>Barang</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?page=pelanggan">
+                                    <i class="material-icons">supervisor_account</i>
+                                    <span>Pelanggan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?page=pengguna">
+                                    <i class="material-icons">person</i>
+                                    <span>Pengguna</span>
+                                </a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                         <li>
                             <ul class="ml-menu">
                             </ul>

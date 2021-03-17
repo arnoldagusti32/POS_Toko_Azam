@@ -43,6 +43,9 @@ $level = $tampil['level'];
                                 <option value="admin" <?php if ($level == "admin") {
                                                             echo "selected";
                                                         } ?>>admin</option>
+                                <option value="kasir" <?php if ($level == "kasir") {
+                                                            echo "selected";
+                                                        } ?>>kasir</option>
                                 <option value="user" <?php if ($level == "user") {
                                                             echo "selected";
                                                         } ?>>user</option>

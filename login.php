@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 $koneksi = new mysqli("localhost", "root", "", "db_pos");
 
-if ($_SESSION['admin']) {
+if ($_SESSION['admin'] || $_SESSION['kasir']) {
     header("location:index.php");
 } else {
 
@@ -91,7 +91,7 @@ if ($_SESSION['admin']) {
 
     </html>
 
-<?php
+    <?php
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -110,8 +110,16 @@ if ($_SESSION['admin']) {
             if ($data['level'] == "admin") {
                 $_SESSION['admin'] = $data['id'];
                 header("location:index.php");
+            } elseif ($data['level'] == "kasir") {
+                $_SESSION['kasir'] = $data['id'];
+                header("location:index.php");
             }
         } else {
+    ?>
+            <script type="text/javascript">
+                alert("Login Gagal! \nUsername dan Password SALAH!");
+            </script>
+<?php
         }
     }
 }

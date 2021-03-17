@@ -34,6 +34,7 @@
                             <select name="level" class="form-control show-tick">
                                 <option value="">-- Pilih Level --</option>
                                 <option value="admin">admin</option>
+                                <option value="kasir">kasir</option>
                                 <option value="user">user</option>
                             </select>
                         </div>

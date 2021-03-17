@@ -51,3 +51,65 @@ $kode = $_GET['kodepj'];
         }
     }
     ?>
+    <br><br><br><br>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        DAFTAR BELANJAAN
+                    </h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode Barcode</th>
+                                    <th>Nama Barang</th>
+                                    <th>Harga</th>
+                                    <th>Jumlah</th>
+                                    <th>Total</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                $sql = $koneksi->query("SELECT * FROM tb_penjualan, tb_barang WHERE tb_penjualan.kode_barcode = tb_barang.kode_barcode AND kode_penjualan='$kode'");
+
+                                while ($data = $sql->fetch_assoc()) {
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $data["kode_barcode"]; ?></td>
+                                        <td><?php echo $data["nama_barang"]; ?></td>
+                                        <td><?php echo $data["harga_jual"]; ?></td>
+                                        <td><?php echo $data["jumlah"]; ?></td>
+                                        <td><?php echo $data["total"]; ?></td>
+
+                                        <td class="d-flex justify-content-center">
+                                            <a href="?page=pelanggan&aksi=ubah&id=<?php echo $data['kode_pelanggan']; ?>" class="btn btn-success"><i class="material-icons">add</i> Tambah</a>
+                                            <a href="?page=pelanggan&aksi=ubah&id=<?php echo $data['kode_pelanggan']; ?>" class="btn btn-success"><i class="material-icons">add</i> Kurang</a>
+                                            <a href="?page=pelanggan&aksi=hapus&id=<?php echo $data['kode_pelanggan']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')"><i class="material-icons">delete</i> Hapus</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    $total_bayar = $total_bayar + $data['total'];
+                                }
+                                ?>
+
+                            </tbody>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Total</td>
+                                <td><input type="text" value="<?php echo $total_bayar; ?>" readonly></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

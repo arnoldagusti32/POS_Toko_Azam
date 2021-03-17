@@ -327,6 +327,12 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
                         </a>
                     </li>
                     <li>
+                        <a href="?page=pengguna">
+                            <i class="material-icons">person</i>
+                            <span>Pengguna</span>
+                        </a>
+                    </li>
+                    <li>
                         <ul class="ml-menu">
                         </ul>
                     </li>
@@ -521,6 +527,16 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
                         include "page/pelanggan/ubah.php";
                     } elseif ($aksi == "hapus") {
                         include "page/pelanggan/hapus.php";
+                    }
+                } elseif ($page == "pengguna") {
+                    if ($aksi == "") {
+                        include "page/pengguna/pengguna.php";
+                    } elseif ($aksi == "tambah") {
+                        include "page/pengguna/tambah.php";
+                    } elseif ($aksi == "ubah") {
+                        include "page/pengguna/ubah.php";
+                    } elseif ($aksi == "hapus") {
+                        include "page/pengguna/hapus.php";
                     }
                 }
 

@@ -110,7 +110,7 @@ $kasir = $data['nama'];
                                             <td class="d-flex justify-content-center">
                                                 <a href="?page=penjualan&aksi=tambah&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>" title="Tambah" class="btn btn-success"><i class="material-icons">add</i></a>
                                                 <a href="?page=penjualan&aksi=kurang&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>" title="Kurang" class="btn btn-success"><i class="material-icons">remove</i></a>
-                                                <a onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')" href="?page=penjualan&aksi=hapus&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>" class="btn btn-danger"><i title="Hapus" class="material-icons">clear</i></a>
+                                                <a onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')" href="?page=penjualan&aksi=hapus&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>&jumlah=<?php echo $data['jumlah'] ?>" class="btn btn-danger"><i title="Hapus" class="material-icons">clear</i></a>
                                             </td>
                                         </tr>
                                     <?php

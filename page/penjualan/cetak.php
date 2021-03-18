@@ -11,7 +11,7 @@ $kode_pj = $_GET['kode_pjl'];
         <td>Toko Azam Grosir</td>
     </tr>
     <tr>
-        <td>Jln. Bumi Asri Kutajaya. Pasar Kemis</td>
+        <td>Jln. Cempaka Raya Blok AA No.3 Bumiasri Kutajaya, Pasar Kemis, Kab Tangerang</td>
     </tr>
     <tr>
         <td>

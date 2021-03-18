@@ -565,8 +565,8 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             include "page/penjualan/penjualan.php";
                         } elseif ($aksi == "tambah") {
                             include "page/penjualan/tambah.php";
-                        } elseif ($aksi == "ubah") {
-                            include "page/penjualan/ubah.php";
+                        } elseif ($aksi == "kurang") {
+                            include "page/penjualan/kurang.php";
                         } elseif ($aksi == "hapus") {
                             include "page/penjualan/hapus.php";
                         }

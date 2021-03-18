@@ -1,6 +1,7 @@
 <?php
 $kode = $_GET['kodepj'];
 
+$kasir = $data['nama'];
 ?>
 
 
@@ -140,7 +141,7 @@ $kode = $_GET['kodepj'];
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;"> Kembali</td>
-                                    <td><input type="number" name="kembali" style="text-align: right;" id="kembali"> <input type="submit" name="simpan_pj" value="cetak"></td>
+                                    <td><input type="number" name="kembali" style="text-align: right;" id="kembali"> <input type="submit" name="simpan_pj" value="Cetak Struk" class="btn btn-info" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=600px',' height=600px','left=300px;')"></td>
                                 </tr>
 
                             </table>

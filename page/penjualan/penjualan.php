@@ -141,7 +141,11 @@ $kasir = $data['nama'];
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;"> Kembali</td>
-                                    <td><input type="number" name="kembali" style="text-align: right;" id="kembali"> <input type="submit" name="simpan_pj" value="Cetak Struk" class="btn btn-info" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=600px',' height=600px','left=300px;')"></td>
+                                    <td>
+                                        <input type="number" name="kembali" style="text-align: right;" id="kembali">
+                                        <input type="submit" name="simpan_pj" value="Simpan" class="btn btn-info">
+                                        <input type="submit" value="Cetak Struk" class="btn btn-success" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=400, height=600, left=300, status=yes')">
+                                    </td>
                                 </tr>
 
                             </table>
@@ -162,7 +166,7 @@ $kasir = $data['nama'];
         $bayar = $_POST['bayar'];
         $kembali = $_POST['kembali'];
 
-        $koneksi->query("INSERT INTO tb_penjualan_detail(kode_penjualan, bayar, kembali, diskon, potongan, total)values('$kode', '$bayar', '$kembali', '$diskon', '$potongan', '$s_total')");
+        $koneksi->query("INSERT INTO tb_penjualan_detail(kode_penjualan, bayar, kembali, diskon, potongan, total_b)values('$kode', '$bayar', '$kembali', '$diskon', '$potongan', '$s_total')");
 
         $koneksi->query("UPDATE tb_penjualan SET kode_pelanggan='$pelanggan' WHERE kode_penjualan='$kode'");
     }

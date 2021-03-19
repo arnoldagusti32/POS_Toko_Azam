@@ -79,7 +79,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <div class="navbar-header">
                     <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                     <a href="javascript:void(0);" class="bars"></a>
-                    <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+                    <a class="navbar-brand" href="index.html">TOKO AZAM GROSIR</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -302,7 +302,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:uppercase;"><?php echo $data['nama']; ?></div>
-                        <div class="email">Anda Login Sebagai <?php echo $data['level']; ?></div>
+                        <div class="email">Anda Login Sebagai : <span style="text-transform:uppercase;"> <?php echo $data['level']; ?></span></div>
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
@@ -335,13 +335,13 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             </li>
                             <li>
                                 <a href="?page=pelanggan">
-                                    <i class="material-icons">supervisor_account</i>
+                                    <i class="material-icons">face</i>
                                     <span>Pelanggan</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="?page=pengguna">
-                                    <i class="material-icons">person</i>
+                                    <i class="material-icons">supervisor_account</i>
                                     <span>Pengguna</span>
                                 </a>
                             </li>
@@ -570,6 +570,8 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         } elseif ($aksi == "hapus") {
                             include "page/penjualan/hapus.php";
                         }
+                    } else {
+                        include "home.php";
                     }
 
                     ?>
@@ -603,9 +605,16 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
         <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
         <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
+        <!-- Jquery CountTo Plugin Js -->
+        <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+        <!-- Sparkline Chart Plugin Js -->
+        <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
         <!-- Custom Js -->
         <script src="js/admin.js"></script>
         <script src="js/pages/tables/jquery-datatable.js"></script>
+        <script src="js/pages/widgets/infobox/infobox-2.js"></script>
 
         <!-- Demo Js -->
         <script src="js/demo.js"></script>

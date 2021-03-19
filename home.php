@@ -49,7 +49,7 @@ while ($tampil1 = $sql1->fetch_assoc()) {
                     <div class="text">
                         <h5>Penjualan Hari Ini</h5>
                     </div>
-                    <div class="number"><?php echo 'Rp.' . '&nbsp;' . number_format($total_pj); ?></div>
+                    <div class="number"><?php echo 'Rp.' . '&nbsp;' . number_format($total_pj) . ',-'; ?></div>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@ while ($tampil1 = $sql1->fetch_assoc()) {
                     <div class="text">
                         <h5>Profit Hari Ini</h5>
                     </div>
-                    <div class="number"><?php echo 'Rp.' . '&nbsp;' . number_format($total_profit); ?></div>
+                    <div class="number"><?php echo 'Rp.' . '&nbsp;' . number_format($total_profit) . ',-'; ?></div>
                 </div>
             </div>
         </div>

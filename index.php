@@ -355,6 +355,12 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             </a>
                         </li>
                         <li>
+                            <a data-toggle="modal" data-target="#smallModal">
+                                <i class="material-icons">print</i>
+                                <span>Laporan Penjualan</span>
+                            </a>
+                        </li>
+                        <li>
                             <ul class="ml-menu">
                             </ul>
                         </li>
@@ -578,6 +584,37 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 </div>
             </div>
         </section>
+
+        <!-- Small Size -->
+        <div class="modal fade" id="smallModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="smallModalLabel">Laporan Penjualan</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="page/penjualan/laporan.php" target="_blank">
+                            <label for="">Tanggal Awal</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" class="form-control" name="tgl_awal" required />
+                                </div>
+                            </div>
+                            <label for="">Tanggal Akhir</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="date" class="form-control" name="tgl_akhir" required />
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary waves-effect"><i class="material-icons">print</i> Cetak</button>
+                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><i title="CLOSE" class="material-icons">clear</i> CLOSE</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <!-- Jquery Core Js -->
         <script src="plugins/jquery/jquery.min.js"></script>

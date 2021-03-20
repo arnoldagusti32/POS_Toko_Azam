@@ -189,7 +189,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                     <div class="copyright">
                         &copy; <script>
                             document.write(new Date().getFullYear());
-                        </script> <a href="#">Azim Grosir</a>.
+                        </script> <a href="#">Azam Grosir</a>.
                     </div>
                     <div class="version">
                         <b>Version: </b> 1.0.0

@@ -18,6 +18,7 @@ while ($tampil2 = $sql2->fetch_assoc()) {
 <marquee behavior="" direction="">
     <h2>Selamat Datang Di SIstem Informasi Penjualan Toko Azam Grosir</h2>
 </marquee>
+<br>
 <div class="container-fluid">
     <div class="block-header">
         <h2>DASHBOARD</h2>

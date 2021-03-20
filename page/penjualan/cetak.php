@@ -4,14 +4,24 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
 $kasir = $_GET['kasir'];
 $kode_pj = $_GET['kode_pjl'];
 ?>
-
+<style>
+    @media print {
+        input.noPrint {
+            display: none;
+        }
+    }
+</style>
 <h4>Struk Pembelanjaan</h4>
 <table>
     <tr>
-        <td>Toko Azam Grosir</td>
+        <td>
+            <center>Toko Azam Grosir</center>
+        </td>
     </tr>
     <tr>
-        <td>Jln. Cempaka Raya Blok AA No.3 Bumiasri Kutajaya, Pasar Kemis, Kab Tangerang</td>
+        <td>
+            <center>Jln. Cempaka Raya Blok AA No.3 Bumiasri Kutajaya, Pasar Kemis, Kab Tangerang</center>
+        </td>
     </tr>
     <tr>
         <td>
@@ -56,8 +66,8 @@ $kode_pj = $_GET['kode_pjl'];
 
         <tr>
             <td><?php echo $tampil2['nama_barang']; ?></td>
-            <td><?php echo number_format($tampil2['harga_jual']) . ',-' . '&nbsp;' . '&nbsp;' . 'X' . '&nbsp;' . '&nbsp;' . $tampil2['jumlah'] . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' ?> </td>
-            <td><?php echo number_format($tampil2['total']) . ',-'; ?></td>
+            <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['harga_jual']) . ',-' . '&nbsp;' . '&nbsp;' . 'X' . '&nbsp;' . '&nbsp;' . $tampil2['jumlah'] . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' ?> </td>
+            <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['total']) . ',-'; ?></td>
         </tr>
 
     <?php
@@ -78,27 +88,27 @@ $kode_pj = $_GET['kode_pjl'];
     </tr>
     <tr>
         <th colspan="2">Total &nbsp;&nbsp;</th>
-        <td> : <?php echo $total_bayar; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_bayar) . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Diskon &nbsp;&nbsp;</th>
-        <td> : <?php echo $diskon; ?></td>
+        <td> : <?php echo $diskon . ' %'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Potongan Diskon &nbsp;&nbsp;</th>
-        <td> : <?php echo $potongan; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($potongan) . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Sub Total &nbsp;&nbsp;</th>
-        <td> : <?php echo $total_b; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_b) . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Bayar &nbsp;&nbsp;</th>
-        <td> : <?php echo $bayar; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($bayar) . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Kembali &nbsp;&nbsp;</th>
-        <td> : <?php echo $kembali; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($kembali) . ',-'; ?></td>
     </tr>
 </table>
 
@@ -106,8 +116,9 @@ $kode_pj = $_GET['kode_pjl'];
     <tr>
         <td>Barang Yang Sudah Dibeli Tidak Dapat Dikembalikan</td>
     </tr>
+    <tr>
+        <td>
+            <center><input type="button" class="noPrint" value="Print" onclick="window.print()"></center>
+        </td>
+    </tr>
 </table>
-
-<br>
-
-<input type="button" value="Print" onclick="window.print()">

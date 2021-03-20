@@ -35,7 +35,10 @@ $kasir = $data['nama'];
                 </div>
             </div>
             <div class="col-md-3">
-                <input type="submit" name="simpan" value="Tambahkan" class="btn btn-primary">
+                <button type="submit" name="simpan" class="btn btn-primary waves-effect">
+                    <i class="material-icons">add_to_queue</i>
+                    <span>Tambahkan</span>
+                </button>
             </div>
         </form>
     </div>
@@ -144,29 +147,47 @@ $kasir = $data['nama'];
                                 <tr>
                                     <td colspan="5" style="text-align: right;">Total</td>
                                     <td><input type="number" name="total_bayar" id="total_bayar" style="text-align: right;" value="<?php echo $total_bayar; ?>" onkeyup="hitung();" readonly></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;">Diskon</td>
-                                    <td><input type="number" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"></td>
+                                    <td><input type="number" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"> %</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;">Potongan Diskon</td>
                                     <td><input type="number" name="potongan" style="text-align: right;" id="potongan"></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;">Sub Total</td>
                                     <td><input type="number" name="s_total" style="text-align: right;" id="s_total"></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;"> Bayar</td>
                                     <td><input type="number" name="bayar" style="text-align: right;" onkeyup="hitung();" id="bayar"></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;"> Kembali</td>
                                     <td>
                                         <input type="number" name="kembali" style="text-align: right;" id="kembali">
-                                        <input type="submit" name="simpan_pj" value="Simpan" class="btn btn-info">
-                                        <input type="submit" value="Cetak Struk" class="btn btn-success" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=400, height=600, left=300, status=yes')">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">
+                                        <center>
+                                            <button type="submit" name="simpan_pj" class="btn bg-orange waves-effect">
+                                                <i class="material-icons">save</i>
+                                                <span>Simpan</span>
+                                            </button>
+                                            <button type="submit" class="btn bg-light-blue waves-effect" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=450, height=600, left=300, status=yes')">
+                                                <i class="material-icons">print</i>
+                                                <span>Cetak Struk</span>
+                                            </button>
+                                        </center>
                                     </td>
                                 </tr>
 

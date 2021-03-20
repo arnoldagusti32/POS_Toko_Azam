@@ -44,10 +44,10 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
                 <td><?php echo date('d F Y', strtotime($data["tgl_penjualan"])); ?></td>
                 <td><?php echo $data["kode_barcode"]; ?></td>
                 <td><?php echo $data["nama_barang"]; ?></td>
-                <td><?php echo number_format($data["harga_jual"]); ?></td>
+                <td><?php echo 'Rp.' . '&nbsp;' . number_format($data["harga_jual"]) . ',-'; ?></td>
                 <td><?php echo $data["jumlah"]; ?></td>
-                <td><?php echo number_format($data["total"]); ?></td>
-                <td><?php echo number_format($profit); ?></td>
+                <td><?php echo 'Rp.' . '&nbsp;' . number_format($data["total"]) . ',-'; ?></td>
+                <td><?php echo 'Rp.' . '&nbsp;' . number_format($profit) . ',-'; ?></td>
             </tr>
         <?php
             $total_pj = $total_pj + $data['total'];
@@ -60,8 +60,8 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
         <th colspan="6">
             Total Penjualan Dan Profit
         </th>
-        <td><?php echo number_format($total_pj); ?></td>
-        <td><?php echo number_format($total_profit); ?></td>
+        <td><?php echo 'Rp.' . '&nbsp;' . number_format($total_pj) . ',-'; ?></td>
+        <td><?php echo 'Rp.' . '&nbsp;' . number_format($total_profit) . ',-'; ?></td>
     </tr>
 </table>
 <br>

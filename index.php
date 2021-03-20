@@ -2,6 +2,7 @@
 session_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 include "kodepj.php";
+include "kodebl.php";
 $koneksi = new mysqli("localhost", "root", "", "db_pos");
 if ($_SESSION['admin'] || $_SESSION['kasir']) {
 ?>
@@ -328,6 +329,12 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         if ($_SESSION['admin']) {
                         ?>
                             <li>
+                                <a href="?page=supplier">
+                                    <i class="material-icons">local_shipping</i>
+                                    <span>Supplier</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="?page=barang">
                                     <i class="material-icons">view_module</i>
                                     <span>Barang</span>
@@ -355,8 +362,14 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             </a>
                         </li>
                         <li>
+                            <a href="?page=pembelian&kodebl=<?php echo $kodebl; ?>">
+                                <i class="material-icons">local_atm</i>
+                                <span>Pembelian</span>
+                            </a>
+                        </li>
+                        <li>
                             <a data-toggle="modal" data-target="#smallModal">
-                                <i class="material-icons">print</i>
+                                <i class="material-icons">insert_drive_file</i>
                                 <span>Laporan Penjualan</span>
                             </a>
                         </li>
@@ -374,10 +387,12 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <!-- Footer -->
                 <div class="legal">
                     <div class="copyright">
-                        &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                        &copy; <script>
+                            document.write(new Date().getFullYear());
+                        </script> <a href="#">Azim Grosir</a>.
                     </div>
                     <div class="version">
-                        <b>Version: </b> 1.0.5
+                        <b>Version: </b> 1.0.0
                     </div>
                 </div>
                 <!-- #Footer -->
@@ -575,6 +590,26 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             include "page/penjualan/kurang.php";
                         } elseif ($aksi == "hapus") {
                             include "page/penjualan/hapus.php";
+                        }
+                    } elseif ($page == "supplier") {
+                        if ($aksi == "") {
+                            include "page/supplier/supplier.php";
+                        } elseif ($aksi == "tambah") {
+                            include "page/supplier/tambah.php";
+                        } elseif ($aksi == "ubah") {
+                            include "page/supplier/ubah.php";
+                        } elseif ($aksi == "hapus") {
+                            include "page/supplier/hapus.php";
+                        }
+                    } elseif ($page == "pembelian") {
+                        if ($aksi == "") {
+                            include "page/pembelian/pembelian.php";
+                        } elseif ($aksi == "tambah") {
+                            include "page/pembelian/tambah.php";
+                        } elseif ($aksi == "kurang") {
+                            include "page/pembelian/kurang.php";
+                        } elseif ($aksi == "hapus") {
+                            include "page/pembelian/hapus.php";
                         }
                     } else {
                         include "home.php";

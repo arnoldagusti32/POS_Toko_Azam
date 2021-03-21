@@ -15,10 +15,9 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Halaman Login</title>
+        <title>Halaman Login - Toko Azam Grosir</title>
         <!-- Favicon-->
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+        <link rel="shortcut icon" href="images/favicon.ico">
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -39,8 +38,9 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
     <body class="login-page">
         <div class="login-box">
             <div class="logo">
-                <a href="javascript:void(0);">Admin<b>BSB</b></a>
-                <small>Admin BootStrap Based - Material Design</small>
+                <img src="images/azam.png" alt="Logo" width="100" height="100">
+                <a href="#">Toko <b>Azam Grosir</b></a>
+                <small>Bukan Terbesar Tapi Terpercaya</small>
             </div>
             <div class="card">
                 <div class="body">
@@ -64,7 +64,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         </div>
                         <div class="row">
                             <div class="col-xs-4">
-                                <input type="submit" class="btn btn-block bg-pink waves-effect" name="login" value="Login">
+                                <input type="submit" class="btn btn-block bg-light-green waves-effect" name="login" value="LOGIN">
                             </div>
                         </div>
                     </form>

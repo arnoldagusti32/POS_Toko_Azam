@@ -12,9 +12,9 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
     <head>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Blank Page | Bootstrap Based Admin Template - Material Design</title>
+        <title>POS - Toko Azam Grosir</title>
         <!-- Favicon-->
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="images/favicon.ico">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -42,7 +42,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
         <link href="css/themes/all-themes.css" rel="stylesheet" />
     </head>
 
-    <body class="theme-red">
+    <body class="theme-blue-grey">
         <!-- Page Loader -->
         <div class="page-loader-wrapper">
             <div class="loader">
@@ -99,7 +99,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="image">
-                        <img src="images/<?php echo $data['photo']; ?>" width="48" height="48" alt="User" />
+                        <img src="images/<?php echo $data['photo']; ?>" width="50" height="50" alt="User" />
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:uppercase;"><?php echo $data['nama']; ?></div>
@@ -107,7 +107,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                                <li><a href="?page=profile"><i class="material-icons">person</i>Profile</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="logout.php"><i class="material-icons">input</i>Sign Out</a></li>
                             </ul>
@@ -119,7 +119,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <div class="menu">
                     <ul class="list">
                         <li class="header">MAIN NAVIGATION</li>
-                        <li>
+                        <li class="active">
                             <a href="index.php">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
@@ -128,25 +128,25 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         <?php
                         if ($_SESSION['admin']) {
                         ?>
-                            <li>
+                            <li class="active">
                                 <a href="?page=supplier">
                                     <i class="material-icons">local_shipping</i>
                                     <span>Supplier</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="?page=barang">
                                     <i class="material-icons">view_module</i>
                                     <span>Barang</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="?page=pelanggan">
                                     <i class="material-icons">face</i>
                                     <span>Pelanggan</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="?page=pengguna">
                                     <i class="material-icons">supervisor_account</i>
                                     <span>Pengguna</span>
@@ -155,19 +155,19 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         <?php
                         }
                         ?>
-                        <li>
+                        <li class="active">
                             <a href="?page=penjualan&kodepj=<?php echo $kode; ?>">
                                 <i class="material-icons">shopping_basket</i>
                                 <span>Penjualan</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="?page=pembelian&kodebl=<?php echo $kodebl; ?>">
                                 <i class="material-icons">local_atm</i>
                                 <span>Pembelian</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a data-toggle="modal" data-target="#smallModal">
                                 <i class="material-icons">insert_drive_file</i>
                                 <span>Laporan Penjualan</span>
@@ -206,7 +206,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
                         <ul class="demo-choose-skin">
-                            <li data-theme="red" class="active">
+                            <li data-theme="red">
                                 <div class="red"></div>
                                 <span>Red</span>
                             </li>
@@ -278,7 +278,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                                 <div class="grey"></div>
                                 <span>Grey</span>
                             </li>
-                            <li data-theme="blue-grey">
+                            <li data-theme="blue-grey" class="active">
                                 <div class="blue-grey"></div>
                                 <span>Blue Grey</span>
                             </li>
@@ -361,6 +361,8 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         } elseif ($aksi == "hapus") {
                             include "page/pembelian/hapus.php";
                         }
+                    } elseif ($page == "profile") {
+                        include "page/profile.php";
                     } else {
                         include "home.php";
                     }
@@ -393,8 +395,8 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary waves-effect"><i class="material-icons">print</i> Cetak</button>
-                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><i title="CLOSE" class="material-icons">clear</i> CLOSE</button>
+                        <button type="submit" class="btn bg-indigo waves-effect"><i class="material-icons">print</i> Cetak</button>
+                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><i class="material-icons">clear</i> CLOSE</button>
                     </div>
                     </form>
                 </div>

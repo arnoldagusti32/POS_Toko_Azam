@@ -7,7 +7,7 @@
                 </h2>
                 <h3>
                     <a href="?page=barang&aksi=tambah" class="btn btn-primary"><i class="material-icons">add</i> Tambah</a>
-                    <a href="page/barang/cetak.php" target="_blank" class="btn btn-primary"><i class="material-icons">print</i> Cetak</a>
+                    <a href="page/barang/cetak.php" target="_blank" class="btn bg-indigo"><i class="material-icons">print</i> Cetak</a>
                 </h3>
             </div>
             <div class="body">

@@ -180,7 +180,7 @@ $kasir = $data['nama'];
                                                 <i class="material-icons">save</i>
                                                 <span>Simpan</span>
                                             </button>
-                                            <button type="submit" class="btn bg-light-blue waves-effect" onclick="window.open('page/pembelian/cetak.php?kode_beli=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=450, height=600, left=300, status=yes')">
+                                            <button type="submit" class="btn bg-indigo waves-effect" onclick="window.open('page/pembelian/cetak.php?kode_beli=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=450, height=600, left=300, status=yes')">
                                                 <i class="material-icons">print</i>
                                                 <span>Cetak Struk</span>
                                             </button>
@@ -220,7 +220,7 @@ $kasir = $data['nama'];
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary waves-effect"><i class="material-icons">print</i> Cetak</button>
+                    <button type="submit" class="btn bg-indigo waves-effect"><i class="material-icons">print</i> Cetak</button>
                     <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><i title="CLOSE" class="material-icons">clear</i> CLOSE</button>
                 </div>
                 </form>

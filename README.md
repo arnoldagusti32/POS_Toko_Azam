@@ -1,2 +1,2 @@
-# POS_Toko_Azim
-Ini Merupakan file untuk aplikasi website Point of sale toko azim
+# POS_Toko_Azam
+Ini Merupakan file untuk aplikasi website Point of sale toko azam

@@ -152,33 +152,71 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                                     <span>Pengguna</span>
                                 </a>
                             </li>
+                            <li class="active">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">shopping_basket</i>
+                                    <span>Penjualan</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li class="active">
+                                        <a href="?page=penjualan&kodepj=<?php echo $kode; ?>">
+                                            Transaksi Penjualan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="modal" data-target="#smallModal">
+                                            Laporan Penjualan
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="active">
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <i class="material-icons">local_atm</i>
+                                    <span>Pembelian</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li class="active">
+                                        <a href="?page=pembelian&kodebl=<?php echo $kodebl; ?>">
+                                            Transaksi Pembelian
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="modal" data-target="#smallModalBeli">
+                                            Laporan Pembelian
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php
                         }
+                        if ($_SESSION['kasir']) {
                         ?>
-                        <li class="active">
-                            <a href="?page=penjualan&kodepj=<?php echo $kode; ?>">
-                                <i class="material-icons">shopping_basket</i>
-                                <span>Penjualan</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="?page=pembelian&kodebl=<?php echo $kodebl; ?>">
-                                <i class="material-icons">local_atm</i>
-                                <span>Pembelian</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a data-toggle="modal" data-target="#smallModal">
-                                <i class="material-icons">insert_drive_file</i>
-                                <span>Laporan Penjualan</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a data-toggle="modal" data-target="#smallModalBeli">
-                                <i class="material-icons">note_add</i>
-                                <span>Laporan Pembelian</span>
-                            </a>
-                        </li>
+                            <li class="active">
+                                <a href="?page=penjualan&kodepj=<?php echo $kode; ?>">
+                                    <i class="material-icons">shopping_basket</i>
+                                    <span>Penjualan</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="?page=pembelian&kodebl=<?php echo $kodebl; ?>">
+                                    <i class="material-icons">local_atm</i>
+                                    <span>Pembelian</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a data-toggle="modal" data-target="#smallModal">
+                                    <i class="material-icons">insert_drive_file</i>
+                                    <span>Laporan Penjualan</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a data-toggle="modal" data-target="#smallModalBeli">
+                                    <i class="material-icons">note_add</i>
+                                    <span>Laporan Pembelian</span>
+                                </a>
+                            </li>
+                        <?php } ?>
                         <li>
                             <ul class="ml-menu">
                             </ul>

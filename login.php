@@ -35,12 +35,14 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
         <link href="css/style.css" rel="stylesheet">
     </head>
 
-    <body class="login-page">
+    <body class="login-page" style="background-image: url('images/bg.png')">
         <div class="login-box">
             <div class="logo">
-                <img src="images/azam.png" alt="Logo" width="100" height="100">
-                <a href="#">Toko <b>Azam Grosir</b></a>
-                <small>Bukan Terbesar Tapi Terpercaya</small>
+                <small><img src="images/bulet.png" alt="Logo" width="200" height="200"></small>
+                <center>
+                    <h4 style="color:#4682B4;">Bukan Terbesar Tapi Terpercaya</h4>
+                    <h4 style="color:#4682B4;">Aneka Barnik Dan Barang Rumah Tangga</h4>
+                </center>
             </div>
             <div class="card">
                 <div class="body">
@@ -64,7 +66,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                         </div>
                         <div class="row">
                             <div class="col-xs-4">
-                                <input type="submit" class="btn btn-block bg-light-green waves-effect" name="login" value="LOGIN">
+                                <input type="submit" class="btn btn-block bg-light-blue waves-effect" name="login" value="LOGIN">
                             </div>
                         </div>
                     </form>

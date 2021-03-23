@@ -7,7 +7,7 @@
                     <img src="images/<?php echo $data['photo']; ?>" width="100" height="100" alt="User" />
                 </div>
                 <div class="content-area">
-                    <h3><?php echo $data['nama']; ?></h3>
+                    <h3 style="text-transform:uppercase;"><?php echo $data['nama']; ?></h3>
                     <p>Toko Azam Grosir "Bukan Terbesar Tapi Terpercaya"</p>
                     <p><span style="text-transform:uppercase;"> <?php echo $data['level']; ?></span></p>
                 </div>
@@ -63,7 +63,10 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-9">
-                                        <button type="submit" name="change" class="btn btn-danger">SUBMIT</button>
+                                        <button type="submit" name="change" class="btn btn-danger waves-effect">
+                                            <i class="material-icons">save</i>
+                                            <span>SAVE</span>
+                                        </button>
                                     </div>
                                 </div>
                             </form>

@@ -36,6 +36,23 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
     </head>
 
     <body class="login-page" style="background-image: url('images/bg.png')">
+        <!-- Page Loader -->
+        <div class="page-loader-wrapper">
+            <div class="loader">
+                <div class="preloader">
+                    <div class="spinner-layer pl-blue-grey">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <p>Please wait...</p>
+            </div>
+        </div>
+        <!-- #END# Page Loader -->
         <div class="login-box">
             <div class="logo">
                 <small><img src="images/bulet.png" alt="Logo" width="200" height="200"></small>

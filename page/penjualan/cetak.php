@@ -5,12 +5,19 @@ $kasir = $_GET['kasir'];
 $kode_pj = $_GET['kode_pjl'];
 ?>
 <style>
+    .noPrint {
+        padding: 5px 10px;
+        background-color: #483D8B;
+        color: white;
+    }
+
     @media print {
-        input.noPrint {
+        button.noPrint {
             display: none;
         }
     }
 </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 <h4>Struk Pembelanjaan</h4>
 <table>
     <tr>
@@ -118,7 +125,12 @@ $kode_pj = $_GET['kode_pjl'];
     </tr>
     <tr>
         <td>
-            <center><input type="button" class="noPrint" value="Print" onclick="window.print()"></center>
+            <center>
+                <button type="button" class="noPrint btn bg-indigo waves-effect" value="Print" onclick="window.print()">
+                    <i class="material-icons">print</i>
+                    <span>PRINT</span>
+                </button>
+            </center>
         </td>
     </tr>
 </table>

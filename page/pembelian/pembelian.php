@@ -194,39 +194,6 @@ $kasir = $data['nama'];
             </div>
         </div>
     </form>
-    <center>
-        <a data-toggle="modal" data-target="#smallModalBeli" target="_blank" class="btn bg-teal"><i class="material-icons">insert_drive_file</i> Laporan Pembelian</a>
-    </center>
-    <!-- Small Size -->
-    <div class="modal fade" id="smallModalBeli" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="smallModalLabel">Laporan Pembelian</h4>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="page/pembelian/laporan.php" target="_blank">
-                        <label for="">Tanggal Awal</label>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <input type="date" class="form-control" name="tgl_awal" required />
-                            </div>
-                        </div>
-                        <label for="">Tanggal Akhir</label>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <input type="date" class="form-control" name="tgl_akhir" required />
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn bg-indigo waves-effect"><i class="material-icons">print</i> Cetak</button>
-                    <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><i title="CLOSE" class="material-icons">clear</i> CLOSE</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <?php
     if (isset($_POST['simpan_bl'])) {
         $supplier = $_POST['supplier'];

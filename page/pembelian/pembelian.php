@@ -59,18 +59,7 @@ $kasir = $data['nama'];
 
         while ($data_barang2 = $barang2->fetch_assoc()) {
             $sisa = $data_barang2['stok'];
-
-            if ($sisa == 0) {
-    ?>
-                <script type="text/javascript">
-                    alert("Stock Barang Habis.. Tidak Dapat melakukan pembelian");
-                    window.location.href = "?page=pembelian&kodebl=<?php echo $kode; ?>"
-                </script>
-    <?php
-            } else {
-
-                $koneksi->query("INSERT INTO tb_pembelian (kode_pembelian, kode_barcode, jumlah, total, tgl_pembelian)VALUES('$kd_bl', '$barcode', '$jumlah', '$total', '$date')");
-            }
+            $koneksi->query("INSERT INTO tb_pembelian (kode_pembelian, kode_barcode, jumlah, total, tgl_pembelian)VALUES('$kd_bl', '$barcode', '$jumlah', '$total', '$date')");
         }
     }
     ?>

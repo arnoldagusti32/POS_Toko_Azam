@@ -3,12 +3,19 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
 ?>
 
 <style>
+    .noPrint {
+        padding: 5px 10px;
+        background-color: #483D8B;
+        color: white;
+    }
+
     @media print {
-        input.noPrint {
+        button.noPrint {
             display: none;
         }
     }
 </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 <table border="1" width="100%" style="border-collapse:collapse" cellpadding="5">
     <caption>
         <h2>Laporan Data Barang</h2>
@@ -49,4 +56,9 @@ $koneksi = new mysqli("localhost", "root", "", "db_pos");
     </tbody>
 </table>
 <br>
-<input type="button" class="noPrint" value="Cetak" onclick="window.print()">
+<center>
+    <button type="button" class="noPrint btn bg-indigo waves-effect" value="Print" onclick="window.print()">
+        <i class="material-icons">print</i>
+        <span>PRINT</span>
+    </button>
+</center>

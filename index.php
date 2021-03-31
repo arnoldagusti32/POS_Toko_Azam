@@ -3,7 +3,8 @@ session_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 include "kodepj.php";
 include "kodebl.php";
-$koneksi = new mysqli("localhost", "root", "", "db_pos");
+include "waktu.php";
+include "config.php";
 if ($_SESSION['admin'] || $_SESSION['kasir']) {
 ?>
     <!DOCTYPE html>
@@ -42,7 +43,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
         <link href="css/themes/all-themes.css" rel="stylesheet" />
     </head>
 
-    <body class="theme-blue-grey">
+    <body class="theme-blue-grey" onload="tampilkanwaktu();setInterval('tampilkanwaktu()', 1000);">
         <!-- Page Loader -->
         <div class="page-loader-wrapper">
             <div class="loader">
@@ -70,11 +71,20 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <div class="navbar-header">
                     <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                     <a href="javascript:void(0);" class="bars"></a>
-                    <a class="navbar-brand" href="index.php">TOKO AZAM GROSIR</a>
+                    <a class="navbar-brand font-bold" href="index.php">TOKO AZAM GROSIR</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                        <li class="mt-10">
+                            <h6 class="navbar-brand" style="font-size: 15px;"><?php echo $day . ', ' . $tgl . ' ' . $month . ' ' . $tahun; ?></h6>
+                        </li>
+                        <li>
+                            <h6 class="navbar-brand" style="font-size: 15px;">Pukul : <span id="clock"></span>
+                            </h6>
+                        </li>
+                        <li class="pull-right">
+                            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -520,6 +530,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
 
     </html>
 <?php
+    include "waktu.php";
 } else {
     header("location:login.php");
 }

@@ -1,5 +1,5 @@
 <?php
-$koneksi = new mysqli("localhost", "root", "", "db_pos");
+include "../../config.php";
 ?>
 
 <style>

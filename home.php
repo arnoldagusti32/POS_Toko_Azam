@@ -67,3 +67,53 @@ while ($tampil2 = $sql2->fetch_assoc()) {
         </div>
     </div>
     <!-- #END# Widgets -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        DATA BARANG DENGAN STOK DIBAWAH 20
+                    </h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode Barcode</th>
+                                    <th>Nama Barang</th>
+                                    <th>Satuan</th>
+                                    <th>Stok</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                $sql = $koneksi->query("SELECT * FROM tb_barang WHERE stok < 20");
+                                $ket = 'class="col-red font-bold"';
+
+                                while ($data = $sql->fetch_assoc()) {
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $data["kode_barcode"]; ?></td>
+                                        <td><?php echo $data["nama_barang"]; ?></td>
+                                        <td><?php echo $data["satuan"]; ?></td>
+                                        <td <?php echo $ket; ?>>
+                                            <center><?php echo $data["stok"]; ?> </center>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

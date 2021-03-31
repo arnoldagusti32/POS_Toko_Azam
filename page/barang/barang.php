@@ -46,17 +46,24 @@
                             $sql = $koneksi->query("SELECT * FROM tb_barang");
 
                             while ($data = $sql->fetch_assoc()) {
+                                if ($data["stok"] < 20) {
+                                    $ket = 'class="col-red font-bold"';
+                                } else {
+                                    $ket = '';
+                                }
 
                             ?>
                                 <tr>
-                                    <td><?php echo $no++; ?></td>
-                                    <td><?php echo $data["kode_barcode"]; ?></td>
-                                    <td><?php echo $data["nama_barang"]; ?></td>
-                                    <td><?php echo $data["satuan"]; ?></td>
-                                    <td><?php echo $data["stok"]; ?></td>
-                                    <td><?php echo $data["harga_beli"]; ?></td>
-                                    <td><?php echo $data["harga_jual"]; ?></td>
-                                    <td><?php echo $data["profit"]; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $no++; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $data["kode_barcode"]; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $data["nama_barang"]; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $data["satuan"]; ?></td>
+                                    <td <?php echo $ket; ?>>
+                                        <center> <?php echo $data["stok"]; ?></center>
+                                    </td>
+                                    <td <?php echo $ket; ?>><?php echo $data["harga_beli"]; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $data["harga_jual"]; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $data["profit"]; ?></td>
                                     <td class="d-flex justify-content-center">
                                         <a href="?page=barang&aksi=ubah&id=<?php echo $data['kode_barcode']; ?>" class="btn btn-success"><i class="material-icons">edit</i> Ubah</a>
                                         <a href="?page=barang&aksi=hapus&id=<?php echo $data['kode_barcode']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')"><i class="material-icons">delete</i> Hapus</a>

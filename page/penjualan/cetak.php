@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-$koneksi = new mysqli("localhost", "root", "", "db_pos");
+include "../../config.php";
 $kasir = $_GET['kasir'];
 $kode_pj = $_GET['kode_pjl'];
 ?>

@@ -2,7 +2,7 @@
 session_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
-$koneksi = new mysqli("localhost", "root", "", "db_pos");
+include "config.php";
 
 if ($_SESSION['admin'] || $_SESSION['kasir']) {
     header("location:index.php");

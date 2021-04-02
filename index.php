@@ -3,7 +3,6 @@ session_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 include "kodepj.php";
 include "kodebl.php";
-include "waktu.php";
 include "config.php";
 if ($_SESSION['admin'] || $_SESSION['kasir']) {
 ?>
@@ -66,6 +65,9 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
         <!-- #END# Overlay For Sidebars -->
         <!-- Search Bar -->
         <!-- Top Bar -->
+        <?php
+        include "waktu.php";
+        ?>
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -76,11 +78,11 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="mt-10">
-                            <h6 class="navbar-brand" style="font-size: 15px;"><?php echo $day . ', ' . $tgl . ' ' . $month . ' ' . $tahun; ?></h6>
+                            <h4 class="navbar-brand" style="font-size: 15px;"><?php echo $day . ', ' . $tgl . ' ' . $month . ' ' . $tahun; ?></h4>
                         </li>
                         <li>
-                            <h6 class="navbar-brand" style="font-size: 15px;">Pukul : <span id="clock"></span>
-                            </h6>
+                            <h4 class="navbar-brand" style="font-size: 15px;">Pukul : <span id="clock"></span>
+                            </h4>
                         </li>
                         <li class="pull-right">
                             <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a>

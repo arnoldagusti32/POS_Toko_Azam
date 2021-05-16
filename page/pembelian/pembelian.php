@@ -193,7 +193,7 @@ $kasir = $data['nama'];
         $bayar = $_POST['bayar'];
         $kembali = $_POST['kembali'];
 
-        $sql_beli = $koneksi->query("INSERT INTO tb_pembelian_detail(kode_pembelian, bayar, kembali, diskon, potongan, total_b)values('$kode', '$bayar', '$kembali', '$diskon', '$potongan', '$s_total')");
+        $sql_beli = $koneksi->query("INSERT INTO tb_pembelian_detail(kode_pembelian, bayar, kembali, diskon, potongan, total_b, id_pengguna)values('$kode', '$bayar', '$kembali', '$diskon', '$potongan', '$s_total', '$user')");
         if ($sql_beli) {
 
             $koneksi->query("UPDATE tb_pembelian SET kode_supplier='$supplier' WHERE kode_pembelian='$kode'");

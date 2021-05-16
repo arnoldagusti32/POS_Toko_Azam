@@ -102,6 +102,7 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
         $sql = $koneksi->query("SELECT * FROM tb_pengguna WHERE id='$user'");
         $data = $sql->fetch_assoc();
 
+        $pengguna = $data['nama'];
         ?>
 
         <!-- #Top Bar -->
@@ -437,6 +438,12 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                     </div>
                     <div class="modal-body">
                         <form method="POST" action="page/penjualan/laporan.php" target="_blank">
+                            <label for="">Pengguna</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="user" value="<?php echo $pengguna; ?>" readonly />
+                                </div>
+                            </div>
                             <label for="">Tanggal Awal</label>
                             <div class="form-group">
                                 <div class="form-line">
@@ -467,6 +474,12 @@ if ($_SESSION['admin'] || $_SESSION['kasir']) {
                     </div>
                     <div class="modal-body">
                         <form method="POST" action="page/pembelian/laporan.php" target="_blank">
+                            <label for="">Pengguna</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" name="user" value="<?php echo $pengguna; ?>" readonly />
+                                </div>
+                            </div>
                             <label for="">Tanggal Awal</label>
                             <div class="form-group">
                                 <div class="form-line">

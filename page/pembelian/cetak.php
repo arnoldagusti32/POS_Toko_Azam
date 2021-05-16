@@ -22,6 +22,11 @@ $kode_bl = $_GET['kode_beli'];
 <table>
     <tr>
         <td>
+            <center><img src="../../images/bulet.png" width="70" height="70" alt=""></center>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <center>Toko Azam Grosir</center>
         </td>
     </tr>
@@ -73,8 +78,8 @@ $kode_bl = $_GET['kode_beli'];
 
         <tr>
             <td><?php echo $tampil2['nama_barang']; ?></td>
-            <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['harga_beli']) . ',-' . '&nbsp;' . '&nbsp;' . 'X' . '&nbsp;' . '&nbsp;' . $tampil2['jumlah'] . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' ?> </td>
-            <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['total']) . ',-'; ?></td>
+            <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['harga_beli'], 0, ",", ".") . ',-' . '&nbsp;' . '&nbsp;' . 'X' . '&nbsp;' . '&nbsp;' . $tampil2['jumlah'] . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' ?> </td>
+            <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['total'], 0, ",", ".") . ',-'; ?></td>
         </tr>
 
     <?php
@@ -95,7 +100,7 @@ $kode_bl = $_GET['kode_beli'];
     </tr>
     <tr>
         <th colspan="2">Total &nbsp;&nbsp;</th>
-        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_bayar) . ',-'; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_bayar, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Diskon &nbsp;&nbsp;</th>
@@ -103,25 +108,45 @@ $kode_bl = $_GET['kode_beli'];
     </tr>
     <tr>
         <th colspan="2">Potongan Diskon &nbsp;&nbsp;</th>
-        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($potongan) . ',-'; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($potongan, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Sub Total &nbsp;&nbsp;</th>
-        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_b) . ',-'; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_b, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Bayar &nbsp;&nbsp;</th>
-        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($bayar) . ',-'; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($bayar, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
         <th colspan="2">Kembali &nbsp;&nbsp;</th>
-        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($kembali) . ',-'; ?></td>
+        <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($kembali, 0, ",", ".") . ',-'; ?></td>
     </tr>
 </table>
-
+<br>
 <table>
     <tr>
         <td>Barang Yang Sudah Dibeli Tidak Dapat Dikembalikan</td>
+    </tr>
+    <tr>
+        <td> <br>
+            <hr><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <center>Menerima Order Via : </center>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <center><i class="fa fa-whatsapp"></i> +62 856-8005-310 &nbsp;&nbsp;&nbsp;&nbsp; <img src="../../images/wa.png" alt="" height="15" width="15"> @heriazam</center>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <center><i class="fa fa-instagram"></i> @azamgrosir &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-facebook-official"></i> @azamgrosir</center>
+        </td>
     </tr>
     <tr>
         <td>

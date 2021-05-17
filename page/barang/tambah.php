@@ -32,6 +32,16 @@
                             <input type="text" class="form-control" name="nama" required />
                         </div>
                     </div>
+                    <label for="">Kategori</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <select name="kategori" class="form-control show-tick">
+                                <option value="">-- Pilih Kategori --</option>
+                                <option value="Perabotan Rumah Tangga">Perabotan Rumah Tangga</option>
+                                <option value="Barang Unik">Barang Unik</option>
+                            </select>
+                        </div>
+                    </div>
                     <label for="">Satuan</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -75,13 +85,14 @@
                 if (isset($_POST["simpan"])) {
                     $kode = $_POST["kode"];
                     $nama = $_POST["nama"];
+                    $kategori = $_POST["kategori"];
                     $satuan = $_POST["satuan"];
                     $stok = $_POST["stok"];
                     $hbeli = $_POST["hbeli"];
                     $hjual = $_POST["hjual"];
                     $profit = $_POST["profit"];
 
-                    $sql = $koneksi->query("INSERT INTO tb_barang values('$kode','$nama','$satuan','$stok','$hbeli','$hjual','$profit')");
+                    $sql = $koneksi->query("INSERT INTO tb_barang values('$kode','$nama','$kategori','$satuan','$stok','$hbeli','$hjual','$profit')");
 
                     if ($sql) {
                 ?>

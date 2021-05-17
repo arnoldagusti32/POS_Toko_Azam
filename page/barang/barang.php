@@ -7,7 +7,7 @@
                 </h2>
                 <h3>
                     <a href="?page=barang&aksi=tambah" class="btn btn-primary"><i class="material-icons">add</i> Tambah</a>
-                    <a href="page/barang/cetak.php" target="_blank" class="btn bg-indigo"><i class="material-icons">print</i> Cetak</a>
+                    <a href="page/barang/cetak.php?user=<?php echo $pengguna; ?>" target="_blank" class="btn bg-indigo"><i class="material-icons">print</i>Cetak</a>
                 </h3>
             </div>
             <div class="body">
@@ -18,6 +18,7 @@
                                 <th>No</th>
                                 <th>Kode Barcode</th>
                                 <th>Nama Barang</th>
+                                <th>Kategori</th>
                                 <th>Satuan</th>
                                 <th>Stok</th>
                                 <th>Harga Beli</th>
@@ -31,6 +32,7 @@
                                 <th>No</th>
                                 <th>Kode Barcode</th>
                                 <th>Nama Barang</th>
+                                <th>Kategori</th>
                                 <th>Satuan</th>
                                 <th>Stok</th>
                                 <th>Harga Beli</th>
@@ -57,6 +59,7 @@
                                     <td <?php echo $ket; ?>><?php echo $no++; ?></td>
                                     <td <?php echo $ket; ?>><?php echo $data["kode_barcode"]; ?></td>
                                     <td <?php echo $ket; ?>><?php echo $data["nama_barang"]; ?></td>
+                                    <td <?php echo $ket; ?>><?php echo $data["kategori"]; ?></td>
                                     <td <?php echo $ket; ?>><?php echo $data["satuan"]; ?></td>
                                     <td <?php echo $ket; ?>>
                                         <center> <?php echo $data["stok"]; ?></center>

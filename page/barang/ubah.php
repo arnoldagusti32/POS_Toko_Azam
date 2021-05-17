@@ -14,6 +14,7 @@ $kode2 = $_GET['id'];
 $sql2 = $koneksi->query("SELECT * FROM tb_barang WHERE kode_barcode ='$kode2'");
 $tampil = $sql2->fetch_assoc();
 
+$kategori = $tampil['kategori'];
 $satuan = $tampil['satuan'];
 
 ?>
@@ -40,6 +41,19 @@ $satuan = $tampil['satuan'];
                     <div class="form-group">
                         <div class="form-line">
                             <input type="text" class="form-control" name="nama" value="<?php echo $tampil['nama_barang']; ?>" required />
+                        </div>
+                    </div>
+                    <label for="">Kategori</label>
+                    <div class=" form-group">
+                        <div class="form-line">
+                            <select name="kategori" class="form-control show-tick">
+                                <option value="Perabotan Rumah Tangga" <?php if ($satuan == "Perabotan Rumah Tangga") {
+                                                                            echo "selected";
+                                                                        } ?>>Perabotan Rumah Tangga</option>
+                                <option value="Barang Unik" <?php if ($satuan == "Barang Unik") {
+                                                                echo "selected";
+                                                            } ?>>Barang Unik</option>
+                            </select>
                         </div>
                     </div>
                     <label for="">Satuan</label>
@@ -90,13 +104,14 @@ $satuan = $tampil['satuan'];
                 if (isset($_POST["simpan"])) {
                     $kode = $_POST["kode"];
                     $nama = $_POST["nama"];
+                    $kategori = $_POST['kategori'];
                     $satuan = $_POST["satuan"];
                     $stok = $_POST["stok"];
                     $hbeli = $_POST["hbeli"];
                     $hjual = $_POST["hjual"];
                     $profit = $_POST["profit"];
 
-                    $sql = $koneksi->query("UPDATE tb_barang SET kode_barcode='$kode', nama_barang='$nama', satuan='$satuan',stok='$stok', harga_beli='$hbeli',harga_jual='$hjual', profit='$profit' WHERE kode_barcode='$kode2'");
+                    $sql = $koneksi->query("UPDATE tb_barang SET kode_barcode='$kode', nama_barang='$nama', kategori='$kategori', satuan='$satuan',stok='$stok', harga_beli='$hbeli',harga_jual='$hjual', profit='$profit' WHERE kode_barcode='$kode2'");
 
                     if ($sql) {
                 ?>

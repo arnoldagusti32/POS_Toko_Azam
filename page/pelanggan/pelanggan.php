@@ -13,6 +13,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Kode Pelanggan</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Telepon</th>
@@ -23,6 +24,7 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
+                                <th>Kode Pelanggan</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Telepon</th>
@@ -41,6 +43,7 @@
                             ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
+                                    <td><?php echo $data["kode_pelanggan"]; ?></td>
                                     <td><?php echo $data["nama"]; ?></td>
                                     <td><?php echo $data["alamat"]; ?></td>
                                     <td><?php echo $data["telepon"]; ?></td>

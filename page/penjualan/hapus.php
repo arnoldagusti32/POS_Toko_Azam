@@ -1,4 +1,6 @@
 <?php
+$kode_pelanggan = $_GET['pelanggan'];
+$namapelanggan = $_GET['namapelanggan'];
 $jumlah = $_GET['jumlah'];
 $id = $_GET['id'];
 $kode_pj = $_GET['kode_pj'];
@@ -11,7 +13,7 @@ $sql2 = $koneksi->query("UPDATE tb_barang SET stok=(stok+$jumlah) WHERE kode_bar
 if ($sql || $sql1 || $sql2) {
 ?>
     <script>
-        window.location.href = "?page=penjualan&kodepj=<?php echo $kode_pj ?>";
+        window.location.href = "?page=penjualan&kodepj=<?php echo $kode_pj ?>&pelanggan=<?php echo $kode_pelanggan ?>&namapelanggan=<?php echo $namapelanggan ?>";
     </script>
 <?php
 }

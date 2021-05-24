@@ -17,6 +17,12 @@ $tampil = $sql2->fetch_assoc();
 
             <div class="body">
                 <form method="POST">
+                    <label for="">Kode Pelanggan</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="kode_pelanggan" value="<?php echo $tampil['kode_pelanggan']; ?>" readonly />
+                        </div>
+                    </div>
                     <label for="">Nama</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -47,7 +53,7 @@ $tampil = $sql2->fetch_assoc();
 
                 <?php
                 if (isset($_POST["simpan"])) {
-                    $kode = $_POST["kode"];
+                    $kode_pelanggan = $_POST["kode_pelanggan"];
                     $nama = $_POST["nama"];
                     $alamat = $_POST["alamat"];
                     $telepon = $_POST["telepon"];

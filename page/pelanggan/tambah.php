@@ -10,6 +10,12 @@
 
             <div class="body">
                 <form method="POST">
+                    <label for="">Kode Pelanggan</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="kode_pelanggan" required />
+                        </div>
+                    </div>
                     <label for="">Nama</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -40,12 +46,13 @@
 
                 <?php
                 if (isset($_POST["simpan"])) {
+                    $kode_pelanggan = $_POST["kode_pelanggan"];
                     $nama = $_POST["nama"];
                     $alamat = $_POST["alamat"];
                     $telepon = $_POST["telepon"];
                     $email = $_POST["email"];
 
-                    $sql = $koneksi->query("INSERT INTO tb_pelanggan values(NULL,'$nama','$alamat','$telepon','$email')");
+                    $sql = $koneksi->query("INSERT INTO tb_pelanggan values('$kode_pelanggan','$nama','$alamat','$telepon','$email')");
 
                     if ($sql) {
                 ?>

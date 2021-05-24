@@ -50,7 +50,7 @@ $kode_pj = $_GET['kode_pjl'];
     ?>
 
     <tr>
-        <td>Kode Penjualan &nbsp;&nbsp;</td>
+        <td>Kd Penjualan &nbsp;&nbsp;</td>
         <td>: &nbsp;&nbsp;<?php echo $tampil['kode_penjualan']; ?></td>
     </tr>
     <tr>
@@ -65,10 +65,13 @@ $kode_pj = $_GET['kode_pjl'];
         <td>Kasir &nbsp;&nbsp;</td>
         <td>: &nbsp;&nbsp;<?php echo $kasir; ?></td>
     </tr>
-    <td colspan="5">
-        <hr>
-    </td>
-
+</table>
+<table>
+    <tr>
+        <td colspan="5">
+            <hr>
+        </td>
+    </tr>
     <?php
     $sql2 = $koneksi->query("SELECT * FROM tb_penjualan, tb_penjualan_detail, tb_barang 
     WHERE tb_penjualan.kode_penjualan=tb_penjualan_detail.kode_penjualan 
@@ -76,9 +79,10 @@ $kode_pj = $_GET['kode_pjl'];
     AND tb_penjualan.kode_penjualan='$kode_pj'");
     while ($tampil2 = $sql2->fetch_assoc()) {
     ?>
-
         <tr>
             <td><?php echo $tampil2['nama_barang']; ?></td>
+        </tr>
+        <tr>
             <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['harga_jual'], 0, ",", ".") . ',-' . '&nbsp;' . '&nbsp;' . 'X' . '&nbsp;' . '&nbsp;' . $tampil2['jumlah'] . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' ?> </td>
             <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['total'], 0, ",", ".") . ',-'; ?></td>
         </tr>
@@ -93,34 +97,35 @@ $kode_pj = $_GET['kode_pjl'];
         $total_bayar = $total_bayar + $tampil2['total'];
     }
     ?>
-
     <tr>
         <td colspan="5">
             <hr>
         </td>
     </tr>
+</table>
+<table>
     <tr>
-        <th colspan="2">Total &nbsp;&nbsp;</th>
+        <th>Total &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_bayar, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
-        <th colspan="2">Diskon &nbsp;&nbsp;</th>
+        <th>Diskon &nbsp;&nbsp;</th>
         <td> : <?php echo $diskon . ' %'; ?></td>
     </tr>
     <tr>
-        <th colspan="2">Potongan Diskon &nbsp;&nbsp;</th>
+        <th>Ptng Diskon &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($potongan, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
-        <th colspan="2">Sub Total &nbsp;&nbsp;</th>
+        <th>Sub Total &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_b, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
-        <th colspan="2">Bayar &nbsp;&nbsp;</th>
+        <th>Bayar &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($bayar, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
-        <th colspan="2">Kembali &nbsp;&nbsp;</th>
+        <th>Kembali &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($kembali, 0, ",", ".") . ',-'; ?></td>
     </tr>
 </table>
@@ -141,12 +146,12 @@ $kode_pj = $_GET['kode_pjl'];
     </tr>
     <tr>
         <td>
-            <center><i class="fa fa-whatsapp"></i> +62 856-8005-310 &nbsp;&nbsp;&nbsp;&nbsp; <img src="../../images/wa.png" alt="" height="15" width="15"> @heriazam</center>
+            <center><i class="fa fa-whatsapp"></i> 0858-9995-4679</center>
         </td>
     </tr>
     <tr>
         <td>
-            <center><i class="fa fa-instagram"></i> @azamgrosir &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-facebook-official"></i> @azamgrosir</center>
+            <center><i class="fa fa-instagram"></i> @azamgrosir <br> <i class="fa fa-facebook-official"></i> @azamgrosir</center>
         </td>
     </tr>
     <tr>

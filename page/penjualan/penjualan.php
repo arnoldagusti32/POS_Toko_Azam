@@ -40,7 +40,6 @@ $kasir = $data['nama'];
                     <span>Tambahkan</span>
                 </button>
             </div>
-        </form>
     </div>
 
     <?php
@@ -78,125 +77,147 @@ $kasir = $data['nama'];
     }
     ?>
     <br><br><br><br>
-    <form method="POST">
-        <div class="col-md-3">
-            <label for="">Pelanggan</label>
-            <select name="pelanggan" class="form-control show-tick">
-                <?php
-                $pelanggan = $koneksi->query("SELECT * FROM tb_pelanggan ORDER BY kode_pelanggan ASC");
-
-                while ($d_pelanggan = $pelanggan->fetch_assoc()) {
-                    echo "<option value='$d_pelanggan[kode_pelanggan]'>$d_pelanggan[nama]</option>";
-                }
-                ?>
-            </select>
-
+    <?php
+    $kode_pelanggan = $_POST['pelanggan'];
+    $namapelanggan = $_POST['namapelanggan'];
+    if ($kode_pelanggan == '') {
+        $kode_pelanggan = $_GET['pelanggan'];
+        $namapelanggan = $_GET['namapelanggan'];
+    }
+    if (isset($_POST['cari_pelanggan'])) {
+        $kode_pelanggan = $_POST['pelanggan'];
+        $sql = $koneksi->query("SELECT * FROM tb_pelanggan WHERE kode_pelanggan LIKE '%$kode_pelanggan%'");
+        $tampil = $sql->fetch_assoc();
+        $namapelanggan = $tampil['nama'];
+    }
+    ?>
+    <div class="col-md-3">
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input type="text" name="pelanggan" class="form-control" value="<?php echo $kode_pelanggan ?>" />
+                <label class="form-label">Kode Pelanggan</label>
+            </div>
         </div>
-        <br><br><br><br>
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            DAFTAR BELANJAAN
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group form-float">
+            <div class="form-line">
+                <input type="text" name="namapelanggan" class="form-control" value="<?php echo $namapelanggan ?>" readonly />
+                <label class=" form-label">Nama Pelanggan</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" name="cari_pelanggan" class="btn bg-teal waves-effect">
+            <i class="material-icons">search</i>
+            <span>Cari</span>
+        </button>
+    </div>
+    <br><br><br><br>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        DAFTAR BELANJAAN
+                    </h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Kode Barcode</th>
+                                    <th>Nama Barang</th>
+                                    <th>Harga</th>
+                                    <th>Jumlah</th>
+                                    <th>Total</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                $sql = $koneksi->query("SELECT * FROM tb_penjualan, tb_barang WHERE tb_penjualan.kode_barcode = tb_barang.kode_barcode AND kode_penjualan='$kode'");
+
+                                while ($data = $sql->fetch_assoc()) {
+
+                                ?>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Kode Barcode</th>
-                                        <th>Nama Barang</th>
-                                        <th>Harga</th>
-                                        <th>Jumlah</th>
-                                        <th>Total</th>
-                                        <th>Aksi</th>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?php echo $data["kode_barcode"]; ?></td>
+                                        <td><?php echo $data["nama_barang"]; ?></td>
+                                        <td><?php echo $data["harga_jual"]; ?></td>
+                                        <td><?php echo $data["jumlah"]; ?></td>
+                                        <td><?php echo $data["total"]; ?></td>
+
+                                        <td class="d-flex justify-content-center">
+                                            <a href="?page=penjualan&aksi=tambah&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>&pelanggan=<?php echo $kode_pelanggan ?>&namapelanggan=<?php echo $namapelanggan ?>" title="Tambah" class="btn btn-success"><i class="material-icons">add</i></a>
+                                            <a href="?page=penjualan&aksi=kurang&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>&pelanggan=<?php echo $kode_pelanggan ?>&namapelanggan=<?php echo $namapelanggan ?>" title="Kurang" class="btn btn-success"><i class="material-icons">remove</i></a>
+                                            <a onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')" href="?page=penjualan&aksi=hapus&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>&jumlah=<?php echo $data['jumlah'] ?>&pelanggan=<?php echo $kode_pelanggan ?>&namapelanggan=<?php echo $namapelanggan ?>" class="btn btn-danger"><i title="Hapus" class="material-icons">clear</i></a>
+                                        </td>
                                     </tr>
-                                </thead>
+                                <?php
+                                    $total_bayar = $total_bayar + $data['total'];
+                                }
+                                ?>
 
-                                <tbody>
-                                    <?php
-                                    $no = 1;
-                                    $sql = $koneksi->query("SELECT * FROM tb_penjualan, tb_barang WHERE tb_penjualan.kode_barcode = tb_barang.kode_barcode AND kode_penjualan='$kode'");
+                            </tbody>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Total</td>
+                                <td><input type="number" name="total_bayar" id="total_bayar" style="text-align: right;" value="<?php echo $total_bayar; ?>" onkeyup="hitung();" readonly></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Diskon</td>
+                                <td><input type="number" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"> %</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Potongan Diskon</td>
+                                <td><input type="number" name="potongan" style="text-align: right;" id="potongan"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;">Sub Total</td>
+                                <td><input type="number" name="s_total" style="text-align: right;" id="s_total"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;"> Bayar</td>
+                                <td><input type="number" name="bayar" style="text-align: right;" onkeyup="hitung();" id="bayar"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="text-align: right;"> Kembali</td>
+                                <td>
+                                    <input type="number" name="kembali" style="text-align: right;" id="kembali">
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <center>
+                                        <button type="submit" name="simpan_pj" class="btn bg-orange waves-effect">
+                                            <i class="material-icons">save</i>
+                                            <span>Simpan</span>
+                                        </button>
+                                        <button type="submit" class="btn bg-indigo waves-effect" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=450, height=600, left=300, status=yes')">
+                                            <i class="material-icons">print</i>
+                                            <span>Cetak Struk</span>
+                                        </button>
+                                    </center>
+                                </td>
+                            </tr>
 
-                                    while ($data = $sql->fetch_assoc()) {
-
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $no++; ?></td>
-                                            <td><?php echo $data["kode_barcode"]; ?></td>
-                                            <td><?php echo $data["nama_barang"]; ?></td>
-                                            <td><?php echo $data["harga_jual"]; ?></td>
-                                            <td><?php echo $data["jumlah"]; ?></td>
-                                            <td><?php echo $data["total"]; ?></td>
-
-                                            <td class="d-flex justify-content-center">
-                                                <a href="?page=penjualan&aksi=tambah&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>" title="Tambah" class="btn btn-success"><i class="material-icons">add</i></a>
-                                                <a href="?page=penjualan&aksi=kurang&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>" title="Kurang" class="btn btn-success"><i class="material-icons">remove</i></a>
-                                                <a onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ...???')" href="?page=penjualan&aksi=hapus&id=<?php echo $data['id'] ?>&kode_pj=<?php echo $data['kode_penjualan'] ?>&harga_jual=<?php echo $data['harga_jual'] ?>&kode_barcode=<?php echo $data['kode_barcode'] ?>&jumlah=<?php echo $data['jumlah'] ?>" class="btn btn-danger"><i title="Hapus" class="material-icons">clear</i></a>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                        $total_bayar = $total_bayar + $data['total'];
-                                    }
-                                    ?>
-
-                                </tbody>
-                                <tr>
-                                    <td colspan="5" style="text-align: right;">Total</td>
-                                    <td><input type="number" name="total_bayar" id="total_bayar" style="text-align: right;" value="<?php echo $total_bayar; ?>" onkeyup="hitung();" readonly></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="text-align: right;">Diskon</td>
-                                    <td><input type="number" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"> %</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="text-align: right;">Potongan Diskon</td>
-                                    <td><input type="number" name="potongan" style="text-align: right;" id="potongan"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="text-align: right;">Sub Total</td>
-                                    <td><input type="number" name="s_total" style="text-align: right;" id="s_total"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="text-align: right;"> Bayar</td>
-                                    <td><input type="number" name="bayar" style="text-align: right;" onkeyup="hitung();" id="bayar"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="5" style="text-align: right;"> Kembali</td>
-                                    <td>
-                                        <input type="number" name="kembali" style="text-align: right;" id="kembali">
-                                    </td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="7">
-                                        <center>
-                                            <button type="submit" name="simpan_pj" class="btn bg-orange waves-effect">
-                                                <i class="material-icons">save</i>
-                                                <span>Simpan</span>
-                                            </button>
-                                            <button type="submit" class="btn bg-indigo waves-effect" onclick="window.open('page/penjualan/cetak.php?kode_pjl=<?php echo $kode; ?>&kasir=<?php echo $kasir; ?>','mywindow','width=450, height=600, left=300, status=yes')">
-                                                <i class="material-icons">print</i>
-                                                <span>Cetak Struk</span>
-                                            </button>
-                                        </center>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </div>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </form>
 
     <?php

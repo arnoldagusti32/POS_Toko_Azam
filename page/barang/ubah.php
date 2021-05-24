@@ -47,10 +47,10 @@ $satuan = $tampil['satuan'];
                     <div class=" form-group">
                         <div class="form-line">
                             <select name="kategori" class="form-control show-tick">
-                                <option value="Perabotan Rumah Tangga" <?php if ($satuan == "Perabotan Rumah Tangga") {
+                                <option value="Perabotan Rumah Tangga" <?php if ($kategori == "Perabotan Rumah Tangga") {
                                                                             echo "selected";
                                                                         } ?>>Perabotan Rumah Tangga</option>
-                                <option value="Barang Unik" <?php if ($satuan == "Barang Unik") {
+                                <option value="Barang Unik" <?php if ($kategori == "Barang Unik") {
                                                                 echo "selected";
                                                             } ?>>Barang Unik</option>
                             </select>

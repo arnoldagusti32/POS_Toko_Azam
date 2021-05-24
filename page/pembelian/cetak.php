@@ -18,6 +18,7 @@ $kode_bl = $_GET['kode_beli'];
     }
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <h4>Struk Pembelian Barang Supplier</h4>
 <table>
     <tr>
@@ -49,7 +50,7 @@ $kode_bl = $_GET['kode_beli'];
     ?>
 
     <tr>
-        <td>Kode pembelian &nbsp;&nbsp;</td>
+        <td>Kd Pembelian &nbsp;&nbsp;</td>
         <td>: &nbsp;&nbsp;<?php echo $tampil['kode_pembelian']; ?></td>
     </tr>
     <tr>
@@ -64,9 +65,13 @@ $kode_bl = $_GET['kode_beli'];
         <td>Kasir &nbsp;&nbsp;</td>
         <td>: &nbsp;&nbsp;<?php echo $kasir; ?></td>
     </tr>
-    <td colspan="5">
-        <hr>
-    </td>
+</table>
+<table>
+    <tr>
+        <td colspan="5">
+            <hr>
+        </td>
+    </tr>
 
     <?php
     $sql2 = $koneksi->query("SELECT * FROM tb_pembelian, tb_pembelian_detail, tb_barang 
@@ -78,6 +83,8 @@ $kode_bl = $_GET['kode_beli'];
 
         <tr>
             <td><?php echo $tampil2['nama_barang']; ?></td>
+        </tr>
+        <tr>
             <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['harga_beli'], 0, ",", ".") . ',-' . '&nbsp;' . '&nbsp;' . 'X' . '&nbsp;' . '&nbsp;' . $tampil2['jumlah'] . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' . '&nbsp;' ?> </td>
             <td><?php echo 'Rp.' . '&nbsp;' . number_format($tampil2['total'], 0, ",", ".") . ',-'; ?></td>
         </tr>
@@ -92,12 +99,13 @@ $kode_bl = $_GET['kode_beli'];
         $total_bayar = $total_bayar + $tampil2['total'];
     }
     ?>
-
     <tr>
         <td colspan="5">
             <hr>
         </td>
     </tr>
+</table>
+<table>
     <tr>
         <th colspan="2">Total &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($total_bayar, 0, ",", ".") . ',-'; ?></td>
@@ -107,7 +115,7 @@ $kode_bl = $_GET['kode_beli'];
         <td> : <?php echo $diskon . ' %'; ?></td>
     </tr>
     <tr>
-        <th colspan="2">Potongan Diskon &nbsp;&nbsp;</th>
+        <th colspan="2">Ptng Diskon &nbsp;&nbsp;</th>
         <td> : <?php echo 'Rp.' . '&nbsp;' . number_format($potongan, 0, ",", ".") . ',-'; ?></td>
     </tr>
     <tr>
@@ -140,12 +148,12 @@ $kode_bl = $_GET['kode_beli'];
     </tr>
     <tr>
         <td>
-            <center><i class="fa fa-whatsapp"></i> +62 856-8005-310 &nbsp;&nbsp;&nbsp;&nbsp; <img src="../../images/wa.png" alt="" height="15" width="15"> @heriazam</center>
+            <center><i class="fa fa-whatsapp"></i> 0858-9995-4679 </center>
         </td>
     </tr>
     <tr>
         <td>
-            <center><i class="fa fa-instagram"></i> @azamgrosir &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-facebook-official"></i> @azamgrosir</center>
+            <center><i class="fa fa-instagram"></i> @azamgrosir <br> <i class="fa fa-facebook-official"></i> @azamgrosir</center>
         </td>
     </tr>
     <tr>

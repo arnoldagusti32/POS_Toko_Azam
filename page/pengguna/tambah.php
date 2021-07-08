@@ -69,8 +69,24 @@
                                 window.location.href = "?page=pengguna";
                             </script>
 
-                <?php
+                        <?php
+                        } else {
+                        ?>
+                            <script type="text/javascript">
+                                alert("Gagal Disimpan !");
+                                window.location.href = "?page=pengguna";
+                            </script>
+
+                        <?php
                         }
+                    } else {
+                        ?>
+                        <script type="text/javascript">
+                            alert("Gagal Upload !");
+                            window.location.href = "?page=pengguna";
+                        </script>
+
+                <?php
                     }
                 }
                 ?>

@@ -35,7 +35,7 @@ include "../../config.php";
             <h4 style="margin-bottom: 0; margin-top: 0;">Telp/Wa : +62 856-8005-310</h4>
         </div>
         <hr>
-        <h2>Laporan Penjualan</h2>
+        <h2>Laporan Pembelian</h2>
     </caption>
     <thead>
         <tr>

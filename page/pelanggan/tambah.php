@@ -61,6 +61,14 @@
                             window.location.href = "?page=pelanggan";
                         </script>
 
+                    <?php
+                    } else {
+                    ?>
+                        <script type="text/javascript">
+                            alert("Gagal Disimpan !");
+                            window.location.href = "?page=pelanggan";
+                        </script>
+
                 <?php
                     }
                 }

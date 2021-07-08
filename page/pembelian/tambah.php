@@ -14,5 +14,12 @@ if ($sql || $sql1 || $sql2) {
         window.location.href = "?page=pembelian&kodebl=<?php echo $kode_bl ?>";
     </script>
 <?php
+} else {
+?>
+    <script type="text/javascript">
+        alert("Gagal !");
+        window.location.href = "?page=pembelian&kodebl=<?php echo $kode_bl ?>";
+    </script>
+<?php
 }
 ?>

@@ -91,6 +91,14 @@ $level = $tampil['level'];
                             </script>
 
                         <?php
+                        } else {
+                        ?>
+                            <script type="text/javascript">
+                                alert("Gagal Diubah !");
+                                window.location.href = "?page=pengguna";
+                            </script>
+
+                        <?php
                         }
                     } else {
 
@@ -100,6 +108,14 @@ $level = $tampil['level'];
                         ?>
                             <script type="text/javascript">
                                 alert("Data Berhasil Diubah !");
+                                window.location.href = "?page=pengguna";
+                            </script>
+
+                        <?php
+                        } else {
+                        ?>
+                            <script type="text/javascript">
+                                alert("Gagal Diubah !");
                                 window.location.href = "?page=pengguna";
                             </script>
 

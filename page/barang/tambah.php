@@ -101,6 +101,14 @@
                             window.location.href = "?page=barang";
                         </script>
 
+                    <?php
+                    } else {
+                    ?>
+                        <script type="text/javascript">
+                            alert("Gagal Disimpan !");
+                            window.location.href = "?page=barang";
+                        </script>
+
                 <?php
                     }
                 }

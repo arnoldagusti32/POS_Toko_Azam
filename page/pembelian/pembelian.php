@@ -137,12 +137,12 @@ $kasir = $data['nama'];
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;">Diskon</td>
-                                    <td><input type="number" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"> %</td>
+                                    <td><input type="text" name="diskon" style="text-align: right;" onkeyup="hitung();" id="diskon"> %</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;">Potongan Diskon</td>
-                                    <td><input type="number" name="potongan" style="text-align: right;" id="potongan"></td>
+                                    <td><input type="number" name="potongan" style="text-align: right;" onkeyup="pot();" id="potongan"></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -152,7 +152,7 @@ $kasir = $data['nama'];
                                 </tr>
                                 <tr>
                                     <td colspan="5" style="text-align: right;"> Bayar</td>
-                                    <td><input type="number" name="bayar" style="text-align: right;" onkeyup="hitung();" id="bayar"></td>
+                                    <td><input type="number" name="bayar" style="text-align: right;" onkeyup="byr();" id="bayar"></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -209,17 +209,35 @@ $kasir = $data['nama'];
             var diskon = document.getElementById('diskon').value;
             var total_bayar = document.getElementById('total_bayar').value;
 
-            var diskon_pot = parseInt(total_bayar) * parseInt(diskon) / parseInt(100);
+            var diskon_pot = parseFloat(total_bayar) * parseFloat(diskon) / parseFloat(100);
 
             if (!isNaN(diskon_pot)) {
                 var potongan = document.getElementById('potongan').value = diskon_pot;
             }
-            var sub_total = parseInt(total_bayar) - parseInt(potongan);
+            var sub_total = parseFloat(total_bayar) - parseFloat(potongan);
             if (!isNaN(sub_total)) {
                 var s_total = document.getElementById('s_total').value = sub_total;
             }
+        }
+
+        function pot() {
+            var total_bayar = document.getElementById('total_bayar').value;
+            var potongan = document.getElementById('potongan').value;
+
+            if (!isNaN(potongan)) {
+                var diskon = parseFloat(potongan) / parseFloat(total_bayar) * parseFloat(100);
+                document.getElementById('diskon').value = diskon.toFixed(2);
+            }
+            var sub_total = parseFloat(total_bayar) - parseFloat(potongan);
+            if (!isNaN(sub_total)) {
+                var s_total = document.getElementById('s_total').value = sub_total;
+            }
+        }
+
+        function byr() {
+            var s_total = document.getElementById('s_total').value;
             var bayar = document.getElementById('bayar').value;
-            var bayar_b = parseInt(bayar) - parseInt(s_total);
+            var bayar_b = parseFloat(bayar) - parseFloat(s_total);
             if (!isNaN(bayar_b)) {
                 document.getElementById('kembali').value = bayar_b;
             }

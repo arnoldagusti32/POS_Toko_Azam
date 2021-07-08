@@ -68,6 +68,14 @@ $tampil = $sql2->fetch_assoc();
                             window.location.href = "?page=pelanggan";
                         </script>
 
+                    <?php
+                    } else {
+                    ?>
+                        <script type="text/javascript">
+                            alert("Gagal Diubah !");
+                            window.location.href = "?page=pelanggan";
+                        </script>
+
                 <?php
                     }
                 }

@@ -16,5 +16,12 @@ if ($sql || $sql1 || $sql2) {
         window.location.href = "?page=penjualan&kodepj=<?php echo $kode_pj ?>&pelanggan=<?php echo $kode_pelanggan ?>&namapelanggan=<?php echo $namapelanggan ?>";
     </script>
 <?php
+} else {
+?>
+    <script>
+        alert("Gagal !");
+        window.location.href = "?page=penjualan&kodepj=<?php echo $kode_pj ?>&pelanggan=<?php echo $kode_pelanggan ?>&namapelanggan=<?php echo $namapelanggan ?>";
+    </script>
+<?php
 }
 ?>

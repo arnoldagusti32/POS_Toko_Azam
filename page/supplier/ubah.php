@@ -62,6 +62,14 @@ $tampil = $sql2->fetch_assoc();
                             window.location.href = "?page=supplier";
                         </script>
 
+                    <?php
+                    } else {
+                    ?>
+                        <script type="text/javascript">
+                            alert("Gagal Diubah !");
+                            window.location.href = "?page=supplier";
+                        </script>
+
                 <?php
                     }
                 }

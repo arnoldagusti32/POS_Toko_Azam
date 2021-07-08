@@ -120,6 +120,14 @@ $satuan = $tampil['satuan'];
                             window.location.href = "?page=barang";
                         </script>
 
+                    <?php
+                    } else {
+                    ?>
+                        <script type="text/javascript">
+                            alert("Gagal Diubah !");
+                            window.location.href = "?page=barang";
+                        </script>
+
                 <?php
                     }
                 }

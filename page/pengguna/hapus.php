@@ -9,5 +9,12 @@ if ($sql) {
         window.location.href = "?page=pengguna";
     </script>
 <?php
+} else {
+?>
+    <script type="text/javascript">
+        alert("Gagal Dihapus !");
+        window.location.href = "?page=pengguna";
+    </script>
+<?php
 }
 ?>
